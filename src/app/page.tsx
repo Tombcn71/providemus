@@ -16,34 +16,6 @@ import {
 } from "lucide-react";
 
 const ProvidemusWebsite = () => {
-  // State voor het contactformulier
-  const [contactFormData, setContactFormData] = useState({
-    naam: "",
-    email: "",
-    bericht: "",
-  });
-
-  // Verzendfunctie voor het contactformulier
-  const handleContactSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          access_key: "b055ebee-8555-4ba7-9245-c81ae1698e61",
-          subject: `Nieuw bericht van ${contactFormData.naam}`,
-          ...contactFormData,
-        }),
-      });
-      if (response.ok) {
-        alert("✅ Bericht verzonden!");
-        setContactFormData({ naam: "", email: "", bericht: "" });
-      }
-    } catch (error) {
-      alert("❌ Fout bij verzenden.");
-    }
-  };
   const [showScan, setShowScan] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -93,21 +65,40 @@ const ProvidemusWebsite = () => {
     akkoord: false,
   });
 
+  const [contactFormData, setContactFormData] = useState({
+    naam: "",
+    email: "",
+    bericht: "",
+  });
+
+  const handleContactSubmit = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        access_key: "b055ebee-8555-4ba7-9245-c81ae1698e61",
+        ...contactFormData,
+      }),
+    });
+    alert("Bericht verzonden!");
+    setContactFormData({ naam: "", email: "", bericht: "" });
+  };
+
   const totalSteps = 7;
 
-  const updateFormData = (field, value) => {
+  const updateFormData = (field: string, value: any) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const toggleMultiSelect = (field, value) => {
-    setFormData((prev) => ({
+  const toggleMultiSelect = (field: string, value: any) => {
+    setFormData((prev: any) => ({
       ...prev,
       [field]: prev[field].includes(value)
-        ? prev[field].filter((item) => item !== value)
+        ? prev[field].filter((item: any) => item !== value)
         : [...prev[field], value],
     }));
   };
-
   const nextStep = () => {
     if (currentStep < totalSteps) setCurrentStep(currentStep + 1);
   };

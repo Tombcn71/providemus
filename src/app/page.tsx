@@ -1340,7 +1340,7 @@ const ProvidemusWebsite = () => {
               Onze kracht zit in vakmanschap, goede communicatie, strakke
               organisatie en betrouwbaar advies. Geen poespas. Gewoon goed werk.
             </p>
-            <p className="text-2xl mb-4 text-gray-200">
+            <p>
               providemus [wij] zorgen voor; [wij] voorzien. 0.1: wij dragen zorg
               voor, wij zullen zorgdragen voor. 0.2: wij voorzien (in), wij
               zullen voorzien (in)

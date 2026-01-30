@@ -1340,6 +1340,11 @@ const ProvidemusWebsite = () => {
               Onze kracht zit in vakmanschap, goede communicatie, strakke
               organisatie en betrouwbaar advies. Geen poespas. Gewoon goed werk.
             </p>
+            <p className="text-2xl mb-4 text-gray-200">
+              providemus [wij] zorgen voor; [wij] voorzien. 0.1: wij dragen zorg
+              voor, wij zullen zorgdragen voor. 0.2: wij voorzien (in), wij
+              zullen voorzien (in)
+            </p>
 
             <h3 className="text-2xl font-bold text-gray-900 mt-10 mb-6">
               Onze aanpak
@@ -1419,7 +1424,7 @@ const ProvidemusWebsite = () => {
                   <Phone className="w-5 h-5 text-blue-900 mt-1" />
                   <div>
                     <p className="font-semibold">Telefoon</p>
-                    <p className="text-gray-600">Beschikbaar op aanvraag</p>
+                    <p className="text-gray-600">0680118357</p>
                   </div>
                 </div>
               </div>
